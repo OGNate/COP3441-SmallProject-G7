@@ -1,5 +1,4 @@
 <?php
-
     $inData = getRequestInfo();  // Gets the request
 
     // Takes in data from the $inData JSON
@@ -13,22 +12,83 @@
     if($connect -> connect_error)
     {
         returnWithError($connect -> connect_error);
+		$connect->close();
     }
     else
     {
-        $stmt = $connect->prepare("INSERT INTO Users (ID, Login, Password) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $userId, $login, $password);
+		// Runs if the Login crediential does not already exist
+		if(isLoginAvailable($connect, $login)) 
+		{
+			// Creates a new userId for the new user by getting the last ID in the database
+			// and then incrementing it by 1
+			$newUserId = getLastID($connect) + 1;
 
-        // Added the new user to the Users table in the COP4331 database
-        $stmt->execute();
+			$stmt = $connect->prepare("INSERT INTO Users (ID, Login, Password) VALUES (?, ?, ?)");
+			$stmt->bind_param("sss", $newUserId, $login, $password);
+	
+			// Added the new user to the Users table in the COP4331 database
+			$stmt->execute();
+	
+			// Ends the connection for stmt and connect
+			$stmt->close();
 
-        // Ends the connection for stmt and connect
-        $stmt->close();
-        $connect->close();
-        
-
-        successfulMessage($login);
+			// Sends a JSON saying the User has been successfully created
+			successfulMessage($login);
+		}
+		else
+		{
+			returnWithError("Login Credentials Already Exist, Try Different Credentials");
+		}
+		
+		// Close the connection
+		$connect->close();
     }
+
+	// @param -> $connect: Connection to the database
+	// @param -> $login: Login Credential being checked if it exists or not
+	// @return -> Boolean: 
+	//				-> True: If the Login credentials do not already exist
+	//				-> False: If the Login credentials already exist
+	function isLoginAvailable($connect, $login)
+	{
+		// Prepares a query to the database looking for a User with the Login equal to $login
+		$stmt = $connect->prepare("SELECT * FROM Users WHERE Login = ?");
+		$stmt->bind_param("s", $login);
+		$stmt->execute();
+
+		// Gets the results from the query
+		$result = $stmt->get_result();
+
+		// Closes the stmt
+		$stmt->close();
+
+		// If there is a user with the same Login, False is returned else True is returned
+		if($result->fetch_assoc()) return False;
+		else return True;
+	}
+
+	// @param -> $connect: Connection to the Database
+	// @return -> UserID: Returns the last UserID in the Users Table in the COP4331 Database
+	function getLastID($connect)
+	{
+		// Prepares a query to the Database finding the User with largest user ID
+		$stmt = $connect->prepare("SELECT * FROM Users ORDER BY ID DESC LIMIT 1");
+		$stmt->execute();
+		$result = $stmt->get_result();
+
+		// Retrieves the last entry based on userID
+		$lastEntry = $result->fetch_assoc();
+
+		// Returns the last UserID found
+		return $lastEntry["ID"];
+	}
+
+
+	function returnWithInfo($userId, $login, $password) 
+	{
+		$returnVal = '{"userId": "' .$userId. '", "login": "' .$login. '", "password": "' .$password. '"}';
+		sendResultInfoAsJson($returnVal);
+	}
 
     // Gets the information from the request
     function getRequestInfo()
