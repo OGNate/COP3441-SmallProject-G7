@@ -7,7 +7,7 @@
     $password = $inData["password"];
 
     // Connects to the database named COP4331
-    $connect = new mysqli("localhost" , $NEED_USERNAME, $NEED_PASSWORD, "COP4331");
+    $connect = new mysqli("localhost" , "User2", "StayProtected", "COP4331");
 
     if($connect -> connect_error)
     {
