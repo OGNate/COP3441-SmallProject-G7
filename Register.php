@@ -24,7 +24,7 @@
 			$newUserId = getLastID($connect) + 1;
 
 			$stmt = $connect->prepare("INSERT INTO Users (ID, Login, Password) VALUES (?, ?, ?)");
-			$stmt->bind_param("sss", $newUserId, $login, $password);
+			$stmt->bind_param("iss", $newUserId, $login, $password);
 	
 			// Added the new user to the Users table in the COP4331 database
 			$stmt->execute();
@@ -33,7 +33,8 @@
 			$stmt->close();
 
 			// Sends a JSON saying the User has been successfully created
-			successfulMessage($login);
+			//successfulMessage($login);
+			returnWithInfo($newUserId, $login, $password);
 		}
 		else
 		{
@@ -86,7 +87,7 @@
 
 	function returnWithInfo($userId, $login, $password) 
 	{
-		$returnVal = '{"userId": "' .$userId. '", "login": "' .$login. '", "password": "' .$password. '"}';
+		$returnVal = '{"userId": ' .$userId. ', "login": "' .$login. '", "password": "' .$password. '", "message": "' .$login. ' successfully created"}';
 		sendResultInfoAsJson($returnVal);
 	}
 
