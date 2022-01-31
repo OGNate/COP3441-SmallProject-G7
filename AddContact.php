@@ -33,7 +33,7 @@
         $connection->close();
 
         # Displays and returns information about the operation to the front-end
-        successfullyAddedContact($login, $userId, $newContactFirstName, $newContactLastName, $email);
+        successfullyAddedContact($login, $userId, $newContactFirstName, $newContactLastName, $newContactEmail);
     }    
 
 
@@ -42,7 +42,7 @@
         $returnVal = 
         '{
             "login": "' .$login. '", 
-            "userId": "' .$userId.'",
+            "userId": ' .$userId.',
             "newContactFirstName": "' .$newContactFirstName.'",
             "newContactLastName": "' .$newContactLastName. '",
             "newContactEmail": "' .$newContactEmail. '",
