@@ -22,7 +22,7 @@
 	{
         #Update Contact information from database.
 		$stmt = $conn->prepare("UPDATE Contacts SET FirstName = ?, LastName = ?, email = ? WHERE (FirstName = ? AND LastName = ? AND email = ? AND ID = ?)");
-		$stmt->bind_param("sssssss", $newFirstName, $newLastName, $newEmail, $oldFirstName, $oldLastName, $oldEmail, $userId);
+		$stmt->bind_param("ssssssi", $newFirstName, $newLastName, $newEmail, $oldFirstName, $oldLastName, $oldEmail, $userId);
 		$stmt->execute();
 		$stmt->close();
 		$conn->close();
