@@ -1,0 +1,39 @@
+body {
+  background-image: url("../images/reflecting-pond.jpeg");
+}
+
+form {
+  padding: 1.25em;
+}
+
+#loginForm .form-group {
+  width: 75%;
+}
+
+.login {
+  background-color: white;
+  width: 600px;
+  margin: 150px auto;
+  border: 3px solid #f1f1f1;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+label.loginLabel {
+  font-weight: bold;
+}
+
+.titleText {
+  position: absolute;
+  margin: -10% 30%;
+  text-align: center;
+}
+
+.titleText h1 {
+  text-align: center;
+  color: #ffc904;
+  background-color: black;
+  font-size: 50px;
+  border-radius: 10px;
+  border: 3px solid #ffc904;
+}

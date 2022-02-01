@@ -13,38 +13,45 @@
       rel="stylesheet"
       href="https://cdn.ucf.edu/athena-framework/v1.1.0/css/framework.min.css"
     />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
   </head>
 
   <body>
-    <form>
-      <div class="form-group">
-        <label for="formUsername">Username</label>
-        <input
-          type="text"
-          class="form-control"
-          id="formUsername"
-          placeholder="RickL"
-        />
-      </div>
+    <div class="titleText">
+      <h1>COP4331 Contact Manager</h1>
+    </div>
 
-      <div class="form-group">
-        <label for="formPassword">Password</label>
-        <input
-          type="password"
-          class="form-control"
-          id="formPassword"
-          placeholder="********"
-        />
-      </div>
+    <div class="login">
+      <form id="loginForm">
+        <div class="form-group">
+          <label class="loginLabel" for="formUsername">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            id="formUsername"
+            placeholder="Username"
+          />
+        </div>
 
-      <div class="form-group">
-        <label>Don't have an account? Register</label>
-      </div>
+        <div class="form-group">
+          <label class="loginLabel" for="formPassword">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="formPassword"
+            placeholder="********"
+          />
+        </div>
 
-      <button type="submit" class="btn btn-primary" onclick="login();">
-        Submit
-      </button>
-    </form>
+        <div class="form-group">
+          <label>Don't have an account? Register</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" onclick="login();">
+          Sign In
+        </button>
+      </form>
+    </div>
 
     <!-- jQuery first, then Tether, then Athena JS. -->
     <script
