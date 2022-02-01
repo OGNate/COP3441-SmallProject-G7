@@ -111,7 +111,7 @@
 	
 	function returnWithError( $err )
 	{
-		$retValue = '{"error ":"' . $err . '"}';
+		$retValue = '{"userId": -1, "error ":"' . $err . '"}';
 		sendResultInfoAsJson( $retValue );
 	}
 ?>
