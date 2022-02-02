@@ -30,13 +30,14 @@
 		
 		$result = $stmt->get_result();
 		
-
+		//Creates array of search results
 		while($row = $result->fetch_assoc())
 		{
 			if( $searchCount > 0 )
 			{
 				$searchResults .= ",";
 			}
+			
 			$searchCount++;
 			$searchResults .= 
 			'{
@@ -52,7 +53,7 @@
 		}
 		else
 		{
-			returnWithInfo( $searchResult );
+			returnWithInfo( $searchResults, $searchCount );
 		}
 		
 		$stmt->close();
@@ -83,11 +84,12 @@
 		sendResultInfoAsJson( $retValue );
 	}
 	
-	function returnWithInfo( $searchResults )
+	function returnWithInfo( $searchResults, $searchCount )
 	{
 		$retValue = 
 		'{
 			"results":[' . $searchResults . '],
+			"count":"' . $searchCount . '",
 			"error":""
 		}';
 		sendResultInfoAsJson( $retValue );
