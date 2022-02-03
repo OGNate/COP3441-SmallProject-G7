@@ -18,7 +18,7 @@
 	else
 	{
         #Delete Contact information from database. Delete keys are case-sensitive
-		$stmt = $conn->prepare("DELETE FROM Contacts WHERE (FirstName = ? AND LastName = ? AND email = ?) AND ID = ?");
+		$stmt = $conn->prepare("DELETE FROM Contacts WHERE (FirstName = ? AND LastName = ? AND email = ?) AND UserID = ?");
 		$stmt->bind_param("sssi", $deleteFirstName, $deleteLastName, $deleteEmail, $userId);
 		$stmt->execute();
 		$stmt->close();

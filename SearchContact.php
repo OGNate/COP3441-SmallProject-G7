@@ -23,14 +23,14 @@
 	{
 
 		//Selects rows from Contacts table where search key is contained in either FirstName, LastLame, or email and where user ID matches
-		$stmt = $conn->prepare("SELECT * FROM Contacts WHERE (FirstName LIKE ? OR LastName LIKE ? OR email LIKE ?) AND ID = ?");
+		$stmt = $conn->prepare("SELECT * FROM Contacts WHERE (FirstName LIKE ? OR LastName LIKE ? OR email LIKE ?) AND UserID = ?");
 		$search_key = "%" . $search_key . "%";
 		$stmt->bind_param("sssi", $search_key, $search_key, $search_key, $inData["userId"]);
 		$stmt->execute();
 		
 		$result = $stmt->get_result();
 		
-		//Creates array of search results
+
 		while($row = $result->fetch_assoc())
 		{
 			if( $searchCount > 0 )
@@ -89,7 +89,7 @@
 		$retValue = 
 		'{
 			"results":[' . $searchResults . '],
-			"count":"' . $searchCount . '",
+			"count":' . $searchCount . ',
 			"error":""
 		}';
 		sendResultInfoAsJson( $retValue );

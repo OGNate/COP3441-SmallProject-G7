@@ -5,7 +5,6 @@
 
     # Gathers identifying data about the User
     $userId = $inData["userId"];
-    $login = $inData["login"];
     
     # Gathers information about the contact the User wants to add
     $newContactFirstName = $inData["contactFirstName"];
@@ -24,7 +23,7 @@
     else
     {
         # Prepares and inserts a new contact into the Contacts Table in the database
-        $stmt = $connection->prepare("INSERT INTO Contacts (ID, FirstName, LastName, email) VALUES (?, ?, ?, ?)");
+        $stmt = $connection->prepare("INSERT INTO Contacts (UserID, FirstName, LastName, email) VALUES (?, ?, ?, ?)");
         $stmt->bind_param("ssss", $userId, $newContactFirstName, $newContactLastName, $newContactEmail);
         $stmt->execute();
 
@@ -33,15 +32,14 @@
         $connection->close();
 
         # Displays and returns information about the operation to the front-end
-        successfullyAddedContact($login, $userId, $newContactFirstName, $newContactLastName, $newContactEmail);
+        successfullyAddedContact($userId, $newContactFirstName, $newContactLastName, $newContactEmail);
     }    
 
 
-    function successfullyAddedContact($login, $userId, $newContactFirstName, $newContactLastName, $newContactEmail)
+    function successfullyAddedContact($userId, $newContactFirstName, $newContactLastName, $newContactEmail)
     {
         $returnVal = 
         '{
-            "login": "' .$login. '", 
             "userId": ' .$userId.',
             "newContactFirstName": "' .$newContactFirstName.'",
             "newContactLastName": "' .$newContactLastName. '",

@@ -21,7 +21,7 @@
 	else
 	{
         #Update Contact information from database.
-		$stmt = $conn->prepare("UPDATE Contacts SET FirstName = ?, LastName = ?, email = ? WHERE (FirstName = ? AND LastName = ? AND email = ? AND ID = ?)");
+		$stmt = $conn->prepare("UPDATE Contacts SET FirstName = ?, LastName = ?, email = ? WHERE (FirstName = ? AND LastName = ? AND email = ? AND UserID = ?)");
 		$stmt->bind_param("ssssssi", $newFirstName, $newLastName, $newEmail, $oldFirstName, $oldLastName, $oldEmail, $userId);
 		$stmt->execute();
 		$stmt->close();
