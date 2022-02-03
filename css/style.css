@@ -1,4 +1,41 @@
-h1 {
-  background: #ffc904;
+#loginBody {
+  background-image: url("https://www.ucf.edu/files/2020/03/ucf-zoom-ReflectingPondAndLibrary-1920x1080.jpg");
+}
+
+a {
+  padding: 0.25em;
+}
+
+#outer {
+  margin: 1em 0em;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#projectHeader {
+  width: 40%;
+  background: black;
+  color: #FFC904;
+  font-size: 2em;
   text-align: center;
+  border-style: solid;
+  border-color: #FFC904;
+  border-radius: 0.5em;
+}
+
+#formDiv {
+  width: 40%;
+}
+
+#loginForm {
+  background: white;
+  border-radius: 0.5em;
+  padding: 1.25em;
+  margin: 1em 0em;
+}
+
+#registerPrompt {
+  margin: 0.5em 0em;
 }

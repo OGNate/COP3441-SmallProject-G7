@@ -1,0 +1,27 @@
+#contactsBody {
+  display: inline-block;
+}
+
+#search {
+  width:  50%;
+  display: inline-block;
+}
+
+#searchField {
+  float: right;
+}
+
+#searchInputDiv {
+  overflow: hidden;
+  padding-right: .5em;
+}
+
+#searchBar {
+  width: 100%;
+}
+
+.table td.fit, 
+.table th.fit {
+    white-space: nowrap;
+    width: 1%;
+}
