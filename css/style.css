@@ -1,5 +1,7 @@
 #loginBody {
   background-image: url("../images/reflecting-pond.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 a {
