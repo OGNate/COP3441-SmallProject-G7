@@ -3,7 +3,7 @@
 }
 
 #search {
-  width:  50%;
+  width: 50%;
   display: inline-block;
 }
 
@@ -13,15 +13,23 @@
 
 #searchInputDiv {
   overflow: hidden;
-  padding-right: .5em;
+  padding-right: 0.5em;
 }
 
 #searchBar {
   width: 100%;
 }
 
-.table td.fit, 
+.table td.fit,
 .table th.fit {
-    white-space: nowrap;
-    width: 1%;
+  white-space: nowrap;
+  width: 1%;
+}
+
+#contactsHeader {
+  text-align: left;
+  color: #ffc904;
+  background: black;
+  font-size: 3em;
+  padding: 0.25em;
 }

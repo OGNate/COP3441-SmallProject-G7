@@ -45,7 +45,7 @@ function login() {
 					username = login;
 					saveCookie();
 		
-					window.location.href = "contacts.html";
+					window.location.href = "../html/contacts.html";
 				}
 			}
 		};
@@ -279,4 +279,8 @@ function searchContacts() {
   } catch(err) {
 		document.getElementById("colorSearchResult").innerHTML = err.message;
 	}
+}
+
+function editContacts() {
+	readCookie()
 }
