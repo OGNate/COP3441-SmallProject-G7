@@ -23,10 +23,15 @@
   </head>
 
   <body id="loginBody">
-    <div id="outer">
-      <div id="projectHeader">COP4331 Contact Manager</div>
+    <div>
+      <div id="projectHeader">ContactHub</div>
 
-      <div id="formDiv">
+      <div id="loginWindow">
+        <img
+          src="images/pegasus-logo.png"
+          alt="UCF pegasus logo"
+          id="pegasus-avatar"
+        />
         <form id="loginForm">
           <div class="form-group">
             <div id="loginResult">
@@ -40,7 +45,9 @@
           </div>
 
           <div class="form-group">
-            <label for="formUsername"><strong>Username</strong></label>
+            <label class="labelColor" for="formUsername"
+              ><strong>Username</strong></label
+            >
             <input
               type="text"
               class="form-control"
@@ -50,7 +57,9 @@
           </div>
 
           <div class="form-group">
-            <label for="formPassword"><strong>Password</strong></label>
+            <label class="labelColor" for="formPassword"
+              ><strong>Password</strong></label
+            >
             <input
               type="password"
               class="form-control"
@@ -64,8 +73,12 @@
           </button>
 
           <div class="form-group" id="registerPrompt">
-            <label>Don't have an account?</label>
-            <a data-toggle="modal" href="#registerModal" class="link-primary"
+            <label class="labelColor">Don't have an account?</label>
+            <a
+              id="registerLink"
+              data-toggle="modal"
+              href="#registerModal"
+              class="link-primary"
               >Register</a
             >
           </div>
