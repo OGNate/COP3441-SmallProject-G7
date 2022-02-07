@@ -43,7 +43,8 @@
 			'{
 				"FirstName": "' . $row["FirstName"] . '",
 				"LastName": "' . $row["LastName"] . '",
-				"Email": "' . $row["email"] . '"
+				"Email": "' . $row["email"] . '",
+				"Contact ID": "' . $row["UserID"] . '"
 			}';
 		}
 		
