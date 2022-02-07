@@ -8,6 +8,7 @@
     $deleteLastName = $inData["deleteLastName"];
     $deleteEmail = $inData["deleteEmail"];
 	$userId = $inData["userId"];
+    $ID = $inData["ID"];
 
     #Connect to database
 	$conn = new mysqli("localhost", "User2", "StayProtected", "COP4331");
@@ -18,8 +19,8 @@
 	else
 	{
         #Delete Contact information from database. Delete keys are case-sensitive
-		$stmt = $conn->prepare("DELETE FROM Contacts WHERE (FirstName = ? AND LastName = ? AND email = ?) AND UserID = ?");
-		$stmt->bind_param("sssi", $deleteFirstName, $deleteLastName, $deleteEmail, $userId);
+		$stmt = $conn->prepare("DELETE FROM Contacts WHERE ID = ? AND UserID = ?");
+		$stmt->bind_param("ii", $ID, $userId);
 		$stmt->execute();
 		$stmt->close();
 		$conn->close();
