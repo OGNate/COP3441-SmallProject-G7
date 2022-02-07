@@ -25,7 +25,7 @@
 		//Selects rows from Contacts table where search key is contained in either FirstName, LastLame, or email and where user ID matches
 		$stmt = $conn->prepare("SELECT * FROM Contacts WHERE (FirstName LIKE ? OR LastName LIKE ? OR email LIKE ?) AND UserID = ?");
 		$search_key = "%" . $search_key . "%";
-		$stmt->bind_param("sssi", $search_key, $search_key, $search_key, $inData["userId"]);
+		$stmt->bind_param("sssi", $search_key, $search_key, $search_key, $inData["userID"]);
 		$stmt->execute();
 		
 		$result = $stmt->get_result();
@@ -44,7 +44,7 @@
 				"FirstName": "' . $row["FirstName"] . '",
 				"LastName": "' . $row["LastName"] . '",
 				"Email": "' . $row["email"] . '",
-				"Contact ID": "' . $row["UserID"] . '"
+				"Contact ID": "' . $row["ID"] . '"
 			}';
 		}
 		
