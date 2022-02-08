@@ -1,14 +1,24 @@
+#contactsPageBody {
+  background-color: #e5e1e6;
+}
+
 #contactsBody {
   display: inline-block;
 }
 
-#search {
-  width: 50%;
-  display: inline-block;
+#ucfLogo {
+  background-image: url("../images/pegasus-logo.png");
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  max-width: 12%;
+  max-height: 12%;
 }
 
-#searchField {
-  float: right;
+#search {
+  width: 50%;
+  margin-top: 0.5em;
+  margin-left: 0.5em;
 }
 
 #searchInputDiv {
@@ -20,6 +30,10 @@
   width: 100%;
 }
 
+#searchButton {
+  float: right;
+}
+
 .table td.fit,
 .table th.fit {
   white-space: nowrap;
@@ -29,7 +43,33 @@
 #contactsHeader {
   text-align: left;
   color: #ffc904;
-  background: black;
-  font-size: 3em;
+  background: rgba(0, 0, 0, 0.9);
+  font-size: 2.5em;
   padding: 0.25em;
+  padding-right: 0.5em;
+  border-bottom: 4px solid #ffc904;
+}
+
+table {
+  margin-top: 0.5em;
+}
+
+#tableHead {
+  background-color: #ffc904;
+  border: 3px solid black;
+}
+
+tr:nth-child(even) {
+  background-color: #dbe2e9;
+}
+
+#addButton {
+  margin-top: 1em;
+  margin-left: 0.5em;
+
+  /* border: 3px solid #000; */
+}
+
+caption {
+  margin-left: 0.5em;
 }
