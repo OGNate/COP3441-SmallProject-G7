@@ -18,6 +18,7 @@
       document.addEventListener(
         "DOMContentLoaded",
         function () {
+          readCookie();
           updateContactList();
         },
         false
@@ -40,7 +41,16 @@
   </head>
 
   <body id="contactsPageBody">
-    <h1 id="contactsHeader">ContactHub | Contacts List</h1>
+
+    <div id="headerDiv">
+
+      <h1 id="contactsHeader">ContactHub | Contacts List</h1>
+
+      <button type="button" class="btn btn-primary" onclick="logout()">
+        <i class="fa-solid fa-arrow-right-from-bracket">Logout</i>
+      </button>
+      
+    </div>
 
     <div>
       <img
