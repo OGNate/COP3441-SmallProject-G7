@@ -45,7 +45,7 @@
   color: #ffc904;
   background: rgba(0, 0, 0, 0.9);
   font-size: 2em;
-  padding: 0.25em;
+  padding: 0.5em;
   padding-right: 0.5em;
   border-bottom: 4px solid #ffc904;
 }
@@ -74,4 +74,11 @@ tr:nth-child(even) {
 
 caption {
   margin-left: 0.5em;
+}
+
+#logoutButton {
+  display: flex;
+  position: fixed;
+  right: 10px;
+  top: 10px;
 }
