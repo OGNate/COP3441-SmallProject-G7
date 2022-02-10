@@ -59,13 +59,13 @@ table {
   border: 3px solid black;
 }
 
-tr:nth-child(odd) {
+/* tr:nth-child(odd) {
   background-color: #c2c9d0;
 }
 
 tr:nth-child(even) {
   background-color: #dbe2e9;
-}
+} */
 
 #addButton {
   margin-top: 1em;
